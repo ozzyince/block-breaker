@@ -44,4 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSpeed: 5
-  timeScale: 0
+  scoreText: {fileID: 0}
+  score: 0
+  blockPoints: 83
