@@ -11,6 +11,17 @@ public class GameStatus : MonoBehaviour
     [SerializeField] int score;
     [SerializeField] int blockPoints = 83;
 
+    private void Awake()
+    {
+        if (FindObjectsOfType<GameStatus>().Length > 1)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+            DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         scoreText.text = score.ToString();
