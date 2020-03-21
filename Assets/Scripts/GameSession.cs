@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameStatus : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
     [Range(1, 9)] [SerializeField] int gameSpeed = 5;
     [SerializeField] TextMeshProUGUI scoreText;
@@ -13,7 +13,7 @@ public class GameStatus : MonoBehaviour
 
     private void Awake()
     {
-        if (FindObjectsOfType<GameStatus>().Length > 1)
+        if (FindObjectsOfType<GameSession>().Length > 1)
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
@@ -37,5 +37,10 @@ public class GameStatus : MonoBehaviour
     {
         score += blockPoints;
         scoreText.text = score.ToString();
+    }
+
+    public void ResetGame()
+    {
+        Destroy(gameObject);
     }
 }
