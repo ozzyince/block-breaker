@@ -123,4 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   breakSound: {fileID: 8300000, guid: 7736c2076e816ba4b8f637c10155c005, type: 3}
   sparklesVFX: {fileID: 100000, guid: 7d846c02296ef4dc4abff04ce3e5262c, type: 3}
-  maxHits: 1
+  maxHits: 3
+  hitSprites:
+  - {fileID: 21300000, guid: 5efc7fc12306a0444847057fccca51af, type: 3}
+  - {fileID: 21300000, guid: e890419495ca36a46898a0fc7905e90d, type: 3}
