@@ -6,9 +6,12 @@ public class Block : MonoBehaviour
 {
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject sparklesVFX;
+    [SerializeField] int maxHits = 1;
 
     Level level;
     GameSession session;
+
+    int timesHit = 0;
 
     private void Start()
     {
@@ -20,7 +23,7 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!CompareTag("Breakable")) return;
+        if (!CompareTag("Breakable") || ++timesHit < maxHits) return;
         DestroyBlock();
         TriggerSparklesVFX();
     }
@@ -37,5 +40,10 @@ public class Block : MonoBehaviour
     {
         var sparkles = Instantiate(sparklesVFX, transform.position, transform.rotation);
         Destroy(sparkles, 2f);
+    }
+
+    private void OnValidate()
+    {
+        maxHits = Mathf.Max(maxHits, 1);
     }
 }
