@@ -12,6 +12,7 @@ public class Block : MonoBehaviour
 
     private void Start()
     {
+        if (!CompareTag("Breakable")) return;
         session = FindObjectOfType<GameSession>();
         level = FindObjectOfType<Level>();
         level.CountBreakableBlocks();
@@ -19,6 +20,7 @@ public class Block : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!CompareTag("Breakable")) return;
         DestroyBlock();
         TriggerSparklesVFX();
     }
