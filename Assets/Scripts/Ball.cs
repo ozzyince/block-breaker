@@ -55,6 +55,11 @@ public class Ball : MonoBehaviour
     {
         if (!hasStarted) return;
         audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Length)]);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!hasStarted) return;
         rigidBody.velocity = Quaternion.Euler(0, 0, Random.Range(-5f, 5f)) * rigidBody.velocity;
     }
 }
